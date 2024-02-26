@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas Praktik 3</title>
+    <style>
+        div{
+            text-align: center;
+        }
+        button{
+            cursor: pointer;
+            align-items: center;
+            margin-top: 10px;
+        }
+        button a{
+            text-decoration: none;
+            color: #000000;
+        }
+        table{
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1><ins>FORMULIR PENDAFTARAN</ins></h1>
+    <video controls style="width: 25%;">
+        <source src="assets/video/videoplayback.mp4" type="video/mp4">
+    </video>
+
+    <br>
+    <canvas id="Canvas" width="350" height="150" style="border: 1px solid #000000;">
+    </canvas>
+
+    </div>
+    <br>
+        <form action="#" method="post">
+            <table>
+                <tr>
+                    <td width="150"><label for="name">Nama Lengkap</label></td>
+                    <td>: <input type="text"></td>
+                </tr>
+                <tr>
+                    <td><label for="tempat-lahir">Tempat Lahir</label></td>
+                    <td>: <input type="text"></td>
+                </tr>
+                <tr>
+                    <td><label for="tgl-lahir">Tanggal Lahir</label></td>
+                    <td>: <input type="date"></td>
+                </tr>
+                <tr>
+                    <td><label for="jk">Jenis Kelamin</label></td>
+                    <td>: <input type="radio"><label for="jk"> Laki-laki</label>
+                        <input type="radio"><label for="jk"> Perempuan</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="alamat">Alamat</label></td>
+                    <td>: <textarea name="alamat" id="alamat" cols="20" rows="5"></textarea></td>
+                </tr>
+                <tr>
+                    <td><label for="email">Email</label></td>
+                    <td>: <input type="email"></td>
+                </tr>
+                <tr>
+                    <td><label for="no-hp">No.Hp</label></td>
+                    <td>: <input type="text"></td>
+                </tr>
+                <tr>
+                    <td><label for="kota">Kota</label></td>
+                    <td>: 
+                        <select name="kota" id="kota" >
+                            <option value="" disabled selected>***Pilih Kota***</option>
+                            <option value="sukabumi">Sukabumi</option>
+                            <option value="bogor">Bogor</option>
+                            <option value="bandung">bandung</option>
+                        </select>
+                    </td>
+                </tr> 
+            </table>
+            <div class="button">
+                <button class="save" type="submit"><a href="TugasPraktik3_AiDinaAgustin.html">Simpan</a></button>
+                <button class="save" type="reset"><a href="TugasPraktik3_AiDinaAgustin.html">Batal</a></button>
+            </div>
+        </form>
+
+    <script>
+        var c = document.getElementById("Canvas");
+        var ctx = c.getContext("2d");
+
+        var grd = ctx.createLinearGradient(0,0,250,0);
+        grd.addColorStop(0,"orange");
+        grd.addColorStop(1,"yellow");
+
+        ctx.fillStyle = grd;
+        ctx.fillRect(0,0,350,150);
+        ctx.font = "30px Arial";
+        ctx.strokeText("Educa Studio",85,85)
+    </script>
+</body>
+</html>
