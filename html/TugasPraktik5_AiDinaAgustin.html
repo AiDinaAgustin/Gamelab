@@ -160,6 +160,7 @@
         justify-content: center;
         align-items: center;
         flex-direction: column;
+        background-color: var(--second-bg-color);
         gap: 1rem;
         line-height: 1.5;
       }
@@ -229,18 +230,68 @@
         transform: scale(1.1);
       }
       footer {
-        background-color: var(--second-bg-color);
+        background-color: var(--bg-color);
         padding: 20px;
       }
 
       footer p {
         text-align: center;
       }
+
+      header{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: var(--second-bg-color);
+        padding: 3rem 9%;
+        justify-content: space-between;
+        align-items: center;
+        display: flex;
+        z-index: 100;
+      }
+
+      .logo h1{
+        font-size: 34px;
+      }
+
+      .logo span{
+        color: var(--main-color);
+      }
+
+      .logo h1:hover{
+        cursor: pointer;
+        transform: scale(1.1);
+        transition: 0.3s ease-in-out;
+      }
+      .navbar a{
+        font-size: 18px;
+        color: white;
+        margin-left: 4rem;
+        font-weight: 600;
+        transition: 0.3s ease-in-out;
+        border-bottom: 3px solid transparent;
+      }
+      .navbar a:hover,
+      .navbar a.active{
+        color: var(--main-color);
+        border-bottom: 3px solid var(--main-color);
+      }
     </style>
   </head>
   <body>
-    <header></header>
-    <section class="awal">
+    <header>
+        <div class="logo">
+            <h1>Dina <span>Cans</span></h1>
+        </div>
+
+        <nav class="navbar">
+            <a href="#awal" class="active">Home</a>
+            <a href="#about">Tentang</a>
+            <a href="#pengalaman">Pengalaman</a>
+        </nav>
+    </header>
+    <section class="awal" id="awal">
       <div class="biografi-img">
         <img src="assets/img/dina.jpg" alt="" />
       </div>
@@ -261,7 +312,7 @@
       </div>
     </section>
 
-    <section class="about">
+    <section class="about" id="about">
       <div class="about-img">
         <img src="assets/img/dina.jpg" alt="" />
       </div>
@@ -281,7 +332,7 @@
       </div>
     </section>
 
-    <section class="pengalaman">
+    <section class="pengalaman" id="pengalaman">
       <h1>Hal yang saya sukai di <span>Gamelab</span></h1>
       <div class="pengalaman-content">
         <article class="praktis" id="card">
@@ -310,7 +361,7 @@
       </div>
     </section>
 
-    <section class="tabel">
+    <section class="tabel" id="tabel">
       <article class="webdev">
         <h1>Web <span>Developer</span></h1>
         <p>
