@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Penerapan BOM</title>
+
+  <style>
+    button{
+        cursor: pointer;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        margin-top: 5px;
+        padding: 5px;
+        border-radius: 10%;
+        border: 0;
+        box-shadow: 0 0 15px #4673fb;
+    }
+
+    button:hover{
+        scale: 1.06;
+        transition: 0.3s ease-in-out;
+    }
+  </style>
+</head>
+<body>
+  <h1>Contoh Penerapan BOM</h1>
+  <p>Berikut adalah beberapa contoh penerapan BOM:</p>
+
+  <button onclick="setTimeout(tampilkanAlert, 1000)">Tampilkan Alert</button>
+
+  <button onclick="tampilkanPrompt()">Tampilkan Prompt</button>
+
+  <button onclick="tampilkanConsoleLog()">Tampilkan Console Log</button>
+
+  <p id="paragraf">Ini adalah paragraf yang akan dimanipulasi.</p>
+
+  <button onclick="ubahWarnaParagraf()">Ubah Warna Paragraf</button><br>
+
+  <audio id="audio" controls>
+    <source src="assets/audio/audio.mp3" type="audio/mpeg">
+  </audio><br>
+  
+  <button onclick="putarAudio()">Putar Music</button>
+
+  <button onclick="pauseAudio()">Pause Music</button>
+
+  <script>
+
+    function tampilkanAlert() {
+      alert("Hello World!");
+    }
+    
+    function tampilkanPrompt() {
+      var nama = prompt("Masukkan nama Anda:");
+      alert("Halo " + nama + "!");
+    }
+
+    function tampilkanConsoleLog() {
+      console.log("Hello World!");
+    }
+
+    function ubahWarnaParagraf() {
+      var paragraf = document.getElementById("paragraf");
+      paragraf.style.color = "red";
+    }
+
+    function putarAudio() {
+    var audio = document.getElementById("audio");
+    audio.play();
+    }
+
+    function pauseAudio(){
+        var audio = document.getElementById("audio");
+        audio.pause();
+    }
+  </script>
+
+</body>
+</html>
