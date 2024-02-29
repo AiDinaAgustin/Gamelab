@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas Praktik 12</title>
+</head>
+<body>
+    
+    <script>
+        function addNumbers(a, b) {
+            // 1. Periksa tipe data input
+            if (typeof a !== "number" || typeof b !== "number") {
+            throw new Error("Input harus berupa angka!"); // Teknik try and catch
+            }
+        
+            // 2. Hitung penjumlahan
+            const sum = a + b;
+        
+            // 3. Tampilkan hasil
+            return sum;
+        }
+        
+        // 4. Jalankan fungsi dengan input yang berbeda
+        try {
+            console.log(addNumbers(1, 2)); // Output: 3
+            console.log(addNumbers(5, 5)); // Output: 10
+            console.log(addNumbers(11, 2)); // Output: 13
+            console.log(addNumbers("1", 2)); // Error: Input harus berupa angka!
+        } catch (error) {
+            console.error(error.message); // Teknik try and catch
+        }
+  
+    </script>
+</body>
+</html>
