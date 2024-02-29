@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Penerapan DOM</title>
+
+  <style>
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+        border: none;
+        outline: none;
+        scroll-behavior: smooth;
+        font-family: "Poppins", sans-serif;
+      }
+
+      :root {
+        --bg-color: #111111;
+        --second-bg-color: #151515;
+        --text-color: #ffffff;
+        --main-color: #04fffb;
+      }
+      html {
+        font-size: 62.5%;
+        overflow-x: hidden;
+      }
+
+      body{
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        margin: 10px;
+        padding: 3rem 9%;
+      }
+    button{
+        cursor: pointer;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        padding: 5px;
+        border: 0;
+        box-shadow: 0 0 15px var(--main-color);
+    }
+
+    button:hover{
+        scale: 1.06;
+        transition: 0.4s ease-in-out;
+    }
+
+    #paragraf{
+        border: 1px solid white;
+        width: 300px;
+        text-align: center;
+        font-size: 15px;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    h1{
+        font-size: 30px;
+        text-align: center;
+        
+    }
+
+    h1:hover{
+        scale: 1.05;
+        transition: 0.3s ease-in-out;
+        cursor: pointer;
+    }
+
+    h2{
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    span{
+        text-shadow: 0 0 25px var(--main-color);
+    }
+
+    section{
+        padding-bottom: 20px;
+        padding-top: 10px;
+    }
+
+  </style>
+</head>
+<body onload="tulis()">
+    <h1><span id="lokasiTulisan"></span></h1>
+  
+  <section class="ubah-warna">
+    <h2>Mengubah Warna Pragraf</h2>
+    <p id="paragraf">Ini adalah paragraf yang akan dimanipulasi. <br> Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis aliquid magni exercitationem, repellendus officiis rerum maxime enim. Eum fugiat illum asperiores repudiandae sit dolores laudantium harum accusantium et, ratione possimus nemo minus ducimus ipsa vel debitis in, similique delectus beatae? Inventore ea deserunt dolore adipisci cumque repudiandae voluptates voluptatum accusamus!</p>
+
+
+    <button onclick="ubahWarnaParagraf()">Ubah Warna Paragraf</button><br>
+  </section>
+
+  <section class="audio-control">
+    <h2>Play Music With Button</h2>
+    <audio id="audio" controls>
+        <source src="assets/audio/audio.mp3" type="audio/mpeg">
+      </audio><br>
+      
+      <button onclick="putarAudio()">Putar Music</button>
+    
+      <button onclick="pauseAudio()">Pause Music</button>
+  </section>
+
+  <script>
+
+    var i =0;
+    var tulisan = "Contoh Penerapan Document Object Model (DOM)";
+    var kecepatan = 100;
+
+    function tulis(){
+        if(i < tulisan.length){
+            document.getElementById("lokasiTulisan").innerHTML += tulisan.charAt(i);
+
+            i++;
+            setTimeout(tulis, kecepatan)
+        }
+    }
+
+    function ubahWarnaParagraf() {
+      var paragraf = document.getElementById("paragraf");
+      paragraf.style.color = "#04fffb";
+    }
+
+    function putarAudio() {
+    var audio = document.getElementById("audio");
+    audio.play();
+    }
+
+    function pauseAudio(){
+        var audio = document.getElementById("audio");
+        audio.pause();
+    }
+
+  </script>
+
+</body>
+</html>
