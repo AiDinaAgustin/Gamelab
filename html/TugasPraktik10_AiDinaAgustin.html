@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tampilan Tabel untuk Web Developer dan UI/UX Designer</title>
+  <style>
+    :root {
+      --bg-color: #111111;
+      --second-bg-color: #151515;
+      --text-color: #ffffff;
+      --main-color: #04fffb;
+    }
+
+    html {
+      font-size: 62.5%;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      text-align: center;
+      
+    }
+
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: min(65ch, 100% - 4 rem);
+        margin-bottom: 20px;
+    }
+
+    img {
+      cursor: pointer;
+      width: 250px;
+      margin-right: 30px;
+      box-shadow: 0 0 25px var(--main-color);
+    }
+
+    table {
+      display: none;
+      border-collapse: collapse;
+      width: 100%;
+      background-color: var(--second-bg-color);
+      color: var(--text-color);
+      border: 1px solid var(--text-color);
+      
+    }
+
+    th, td {
+      border: 1px solid var(--text-color);
+      padding: 5px;
+      text-align: left;
+    }
+
+    th {
+      background-color: var(--main-color);
+      color: var(--bg-color);
+    }
+
+    footer {
+        width: 100%;
+        background-color: var(--second-bg-color);
+        padding: 20px;
+      }
+
+      footer p {
+        text-align: center;
+      }
+
+      header{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: var(--second-bg-color);
+        padding: 2rem 9%;
+        justify-content: space-between;
+        align-items: center;
+        display: flex;
+        z-index: 100;
+      }
+
+      .logo h1{
+        font-size: 34px;
+      }
+
+      .logo span{
+        color: var(--main-color);
+      }
+
+      .logo h1:hover{
+        cursor: pointer;
+        transform: scale(1.1);
+        transition: 0.3s ease-in-out;
+      }
+      .navbar a{
+        font-size: 18px;
+        color: white;
+        margin-left: 20rem;
+        font-weight: 600;
+        transition: 0.3s ease-in-out;
+        border-bottom: 3px solid transparent;
+      }
+      .navbar a:hover,
+      .navbar a.active{
+        color: var(--main-color);
+        border-bottom: 3px solid var(--main-color);
+      }
+
+      .tabel{
+        padding: 2rem 20%;
+      }
+
+      .judul{
+        margin-top: 200px;
+        margin-bottom: 20px;
+      }
+      
+  </style>
+</head>
+<body onload="tulis()">
+    <header>
+        <div class="logo">
+            <h1>Dina <span>Cans</span></h1>
+        </div>
+
+        <!-- <nav class="navbar">
+            <a href="#awal" class="active">Home</a>
+            <a href="#about">Tentang</a>
+            <a href="#pengalaman">Pengalaman</a>
+        </nav> -->
+    </header>
+    <div class="judul">
+        <h1><span id="lokasiTulisan"></span></h1>
+    </div>
+    
+    <div class="container">
+        <img src="assets/img/pexels-christina-morillo-1181675.jpg" alt="Web Developer" onclick="tampilkanTabel(1)">
+        <img src="assets/img/pexels-cottonbro-studio-3584994.jpg" alt="UI/UX Designer" onclick="tampilkanTabel(2)">
+    </div>
+    
+    <div class="tabel">
+        <table id="tabel1">
+            <caption>Informasi Web Developer</caption>
+            <thead>
+              <tr>
+                <th>Keterampilan</th>
+                <th>Deskripsi</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>HTML, CSS, JavaScript</td>
+                <td>Membangun struktur, gaya, dan interaksi halaman web.</td>
+              </tr>
+              <tr>
+                <td>Backend development (sesuai kebutuhan)</td>
+                <td>Membuat logika dan database untuk website.</td>
+              </tr>
+              <tr>
+                <td>Framework/library (sesuai kebutuhan)</td>
+                <td>Menerapkan framework/library untuk mempercepat pengembangan.</td>
+              </tr>
+              <tr>
+                <td>Pengujian dan debugging</td>
+                <td>Memastikan website berfungsi dengan baik dan mengatasi error.</td>
+              </tr>
+            </tbody>
+          </table>
+        
+          <table id="tabel2">
+            <caption>Informasi UI/UX Designer</caption>
+            <thead>
+              <tr>
+                <th>Keahlian</th>
+                <th>Deskripsi</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Riset pengguna</td>
+                <td>Memahami kebutuhan dan perilaku pengguna.</td>
+              </tr>
+              <tr>
+                <td>Wireframing dan prototyping</td>
+                <td>Membuat sketsa dan mockup untuk merancang interaksi.</td>
+              </tr>
+              <tr>
+                <td>Desain visual</td>
+                <td>Menciptakan tampilan estetis dan intuitif.</td>
+              </tr>
+              <tr>
+                <td>Pengujian pengguna</td>
+                <td>Mengevaluasi dan menyempurnakan desain berdasarkan feedback pengguna.</td>
+              </tr>
+            </tbody>
+          </table>
+    
+    </div>
+     
+  <script>
+     var i =0;
+    var tulisan = "Penerapan Event Pada Java Script";
+    var kecepatan = 100;
+
+    function tulis(){
+        if(i < tulisan.length){
+            document.getElementById("lokasiTulisan").innerHTML += tulisan.charAt(i);
+
+            i++;
+            setTimeout(tulis, kecepatan)
+        }
+
+    }
+    function tampilkanTabel(id) {
+      var tabel1 = document.getElementById("tabel1");
+      var tabel2 = document.getElementById("tabel2");
+
+      tabel1.style.display = "none";
+      tabel2.style.display = "none";
+
+      document.getElementById("tabel" + id).style.display = "table";
+    }
+  </script>
+</body>
+</html>

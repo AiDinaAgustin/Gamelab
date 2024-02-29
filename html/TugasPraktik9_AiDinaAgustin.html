@@ -94,6 +94,8 @@
 
 
     <button onclick="ubahWarnaParagraf()">Ubah Warna Paragraf</button><br>
+
+    <button onclick="kembaliWarnaParagraf()">Kembalikan Warna Paragraf</button><br>
   </section>
 
   <section class="audio-control">
@@ -125,6 +127,11 @@
     function ubahWarnaParagraf() {
       var paragraf = document.getElementById("paragraf");
       paragraf.style.color = "#04fffb";
+    }
+
+    function kembaliWarnaParagraf() {
+      var paragraf = document.getElementById("paragraf");
+      paragraf.style.color = "white";
     }
 
     function putarAudio() {
