@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas Praktik 11</title>
+
+    <style>
+        body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        padding: 3rem 9%;
+        }
+
+        h1 {
+        margin-top: 0;
+        }
+
+        #todo-form {
+        display: flex;
+        align-items: center;
+        }
+
+        #new-todo {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        flex: 1;
+        }
+
+        #todo-form button {
+        margin-left: 10px;
+        padding: 10px 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #000;
+        color: #fff;
+        cursor: pointer;
+        }
+
+        #todo-list {
+        margin-top: 20px;
+        padding: 0;
+        list-style: none;
+        }
+
+        .todo-item {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        border-bottom: 1px solid #ccc;
+        justify-content: space-between;
+        }
+
+        .todo-text {
+        flex: 1;
+        }
+
+        .delete-button {
+        background-color: transparent;
+        border: none;
+        color: #ccc;
+        cursor: pointer;
+        transition: color 0.2s ease-in-out;
+        }
+
+        .delete-button:hover {
+        color: #000;
+        }
+    </style>
+</head>
+<body>
+    <h1>Todo List</h1>
+    <form id="todo-form">
+        <input type="text" id="new-todo" placeholder="Masukkan Todo Baru">
+        <button type="submit">Simpan</button>
+    </form>
+    <ul id="todo-list"></ul>
+
+    <script>
+        const todoForm = document.getElementById('todo-form');
+        const newTodoInput = document.getElementById('new-todo');
+        const todoList = document.getElementById('todo-list');
+
+        // Menambahkan Todo Baru
+        todoForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        const todoText = newTodoInput.value;
+        if (!todoText) return;
+
+        // Simpan Todo ke Local Storage
+        const todoListArray = getTodoListFromLocalStorage();
+        todoListArray.push(todoText);
+        saveTodoListToLocalStorage(todoListArray);
+
+        // Tampilkan Todo Baru
+        const newTodoItem = createTodoItem(todoText);
+        todoList.appendChild(newTodoItem);
+
+        newTodoInput.value = '';
+        });
+
+        // Mendapatkan Todo List dari Local Storage
+        function getTodoListFromLocalStorage() {
+        const todoListJSON = localStorage.getItem('todoList');
+        return todoListJSON ? JSON.parse(todoListJSON) : [];
+        }
+
+        // Menyimpan Todo List ke Local Storage
+        function saveTodoListToLocalStorage(todoListArray) {
+        const todoListJSON = JSON.stringify(todoListArray);
+        localStorage.setItem('todoList', todoListJSON);
+        }
+
+        // Membuat Elemen Todo List
+        function createTodoItem(todoText) {
+        const todoItem = document.createElement('li');
+        todoItem.classList.add('todo-item');
+
+        const todoTextElement = document.createElement('span');
+        todoTextElement.classList.add('todo-text');
+        todoTextElement.textContent = todoText;
+
+        // Buat button delete
+        const deleteButton = document.createElement('button');
+        deleteButton.classList.add('delete-button');
+        deleteButton.textContent = 'Hapus';
+
+        deleteButton.addEventListener('click', () => {
+            // Hapus Todo dari Local Storage
+            const todoListArray = getTodoListFromLocalStorage();
+            const todoIndex = todoListArray.indexOf(todoText);
+            todoListArray.splice(todoIndex, 1);
+            saveTodoListToLocalStorage(todoListArray);
+
+            // Hapus Elemen Todo List
+            todoItem.parentNode.removeChild(todoItem);
+        });
+
+        todoItem.appendChild(todoTextElement);
+        todoItem.appendChild(deleteButton);
+
+        return todoItem;
+        }
+
+        // Menampilkan Todo List yang Disimpan
+        const todoListArray = getTodoListFromLocalStorage();
+        for (const todoText of todoListArray) {
+        const todoItem = createTodoItem(todoText);
+        todoList.appendChild(todoItem);
+        }
+
+    </script>
+</body>
+</html>

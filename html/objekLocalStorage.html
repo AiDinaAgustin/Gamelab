@@ -1,0 +1,19 @@
+<html>
+<body>
+
+<div id="result"></div>
+
+<script>
+// cek browser support
+if (typeof(Storage) !== "undefined") {
+  // Store
+  localStorage.setItem("lastname", "Smith");
+  // Retrieve
+  document.getElementById("result").innerHTML = localStorage.getItem("lastname");
+} else {
+  document.getElementById("result").innerHTML = "Maaf, browser Anda tidak mendukung Penyimpanan Web...";
+}
+</script>
+
+</body>
+</html>
