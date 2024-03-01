@@ -1,36 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tugas Praktik 12</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contoh Debugging JavaScript Lengkap</title>
 </head>
 <body>
-    
-    <script>
-        function addNumbers(a, b) {
-            // 1. Periksa tipe data input
-            if (typeof a !== "number" || typeof b !== "number") {
-            throw new Error("Input harus berupa angka!"); // Teknik try and catch
-            }
-        
-            // 2. Hitung penjumlahan
-            const sum = a + b;
-        
-            // 3. Tampilkan hasil
-            return sum;
+  <script>
+    function addNumbers(a, b) {
+      // Menambahkan log untuk melacak nilai input
+      console.log(`Nilai a: ${a}, Nilai b: ${b}`);
+
+      try {
+        // Periksa tipe data input
+        if (typeof a !== "number" || typeof b !== "number") {
+          throw new Error("Input harus berupa angka!");
         }
-        
-        // 4. Jalankan fungsi dengan input yang berbeda
-        try {
-            console.log(addNumbers(1, 2)); // Output: 3
-            console.log(addNumbers(5, 5)); // Output: 10
-            console.log(addNumbers(11, 2)); // Output: 13
-            console.log(addNumbers("1", 2)); // Error: Input harus berupa angka!
-        } catch (error) {
-            console.error(error.message); // Teknik try and catch
-        }
-  
-    </script>
+
+        // Hitung penjumlahan
+        const sum = a + b;
+
+        // Menambahkan log untuk melacak hasil penjumlahan
+        console.log(`Hasil penjumlahan: ${sum}`);
+
+        return sum;
+      } catch (error) {
+        console.error(error.message); // Menampilkan pesan error yang lebih informatif
+        return undefined; // Mengembalikan nilai undefined jika terjadi error
+      }
+    }
+
+    // Jalankan fungsi dengan debugger di baris 12
+    debugger; // Memicu debugger di browser
+    const result = addNumbers(1, 2);
+    console.log(`Hasil: ${result}`); // Output: Hasil: 3
+
+    // Jalankan fungsi dengan input yang salah
+    const result2 = addNumbers("a", 2);
+    console.log(`Hasil: ${result2}`); // Output: Hasil: undefined, Input harus berupa angka!
+  </script>
 </body>
 </html>
