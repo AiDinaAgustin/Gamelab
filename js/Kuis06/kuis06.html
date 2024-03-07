@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kuis 06 - Menyembunyikan Elemen</title>
+  <style>
+    button{
+        cursor: pointer;
+    }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+  <h2>Tekan tombol untuk menyembunyikan elemen:</h2>
+
+    <h3>Ini adalah heading h3</h3>
+    <p class="dengan-class">Ini adalah paragraf dengan class "dengan-class"</p>
+    <a href="https://www.google.com">Ini adalah link</a>
+
+  <br>
+
+  <button onclick="hideEl()">Sembunyikan Elemen Tanpa Class</button>
+  <button onclick="hideClass()">Sembunyikan Elemen dengan Class</button>
+  <button onclick="hideAttr()">Sembunyikan Elemen dengan Atribut</button>
+
+  <script src="kuis06.js"></script>
+</body>
+</html>
