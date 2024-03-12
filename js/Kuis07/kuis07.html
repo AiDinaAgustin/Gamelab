@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Events Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #3e8e41;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        #click-message,
+        #name-display,
+        #hover-text,
+        #form-message {
+            color: #3f51b5;
+        }
+
+        #name-input {
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        #hover-image {
+            border: 1px solid #ddd;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+
+        #submit-form {
+            margin-bottom: 20px;
+        }
+
+        #submit-form label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        #message {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        #scroll-box {
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        #todo-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        #todo-list li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        #todo-list li:last-child {
+            border-bottom: none;
+        }
+
+        #todo-list li input {
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        .todo{
+            font-size: 20px;
+        }
+
+        img{
+            width: 20%;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>Kuis 07 jQuery Events</h1>
+
+    <button id="click-me">Click Me!</button>
+    <p id="click-message"></p>
+
+    <input type="text" id="name-input" placeholder="Enter your name">
+    <p id="name-display"></p>
+
+    <img src="img/bp.jpg" alt="Image" id="hover-image">  <p id="hover-text"></p>
+
+    <form id="submit-form">
+        <label for="message">Input Message:</label>
+        <textarea id="message" rows="4" cols="50"></textarea>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+    <p id="form-message"></p>
+
+    <div>
+        <p class="todo">My Todo </p>
+    <ul id="todo-list">
+        <li>Jajan Seblak</li>
+        <li>Nonton Drakor</li>
+        <li>Ngewibu</li>
+    </ul>
+    <input type="text" id="new-todo" placeholder="Add new todo">
+    <button id="add-todo">Add Todo</button>
+    </div>
+
+    <script src="kuis07.js"></script>
+</body>
+</html>
