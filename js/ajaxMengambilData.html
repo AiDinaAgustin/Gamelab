@@ -5,35 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .img-container {
-  width: 300px;
-  height: 300px;
+        .container {
+        display: flex;
+        align-items: center;
+        }
 
-  margin-top: 20px;
-}
-        
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+        .loading-icon {
+        display: none;
+        width: 20px;
+        height: 20px;
+
+        margin-left: 15px;
+        }
+    
     </style>
 </head>
 <body>
-    <button>Update Image</button>
-<div class="img-container">
-  <img src="" alt="Gambar">
-</div>
+    <div class="container">
+        <button>Update Image</button>
+        <span class="loading-icon">
+          <img src="https://c.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif" alt="">
+        </span>
+      </div>
+      
+      <div class="img-container">
+        <img src="" class="dog-img" alt="Gambar">
+      </div>
 
 <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
-<script>
-    $('button').click(function() {
+<script> 
+$('button').click(function() {
+  $('.loading-icon').show();
+  $('button').attr('disabled', 'disabled');
+
   $.ajax({
     url: 'https://dog.ceo/api/breeds/image/random',
     type: 'GET',
     success: function(res) {
-      console.log(res);
-      $('img').attr('src', res.message);
+      setTimeout(() => {
+        $('.loading-icon').hide();
+        $('button').removeAttr('disabled');
+      }, 1200);
+
+      $('img.dog-img').attr('src', res.message);
     }
   });
 });
