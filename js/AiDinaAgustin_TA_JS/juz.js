@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    // **Fetch Juz Information**
+
     $("button.get").click(function () {
         $.ajax({
             url: "https://api.myquran.com/v2/quran/juz/semua",
@@ -32,7 +32,7 @@ $(document).ready(function () {
 
                 $(".juz-list").html(htmlContent); // Update the content of the list
                 
-                // **Handle Play Button Click**
+                // ** Play Button Click**
                 $("button.read-juz").click(function () {
                     var button = $(this);
                     var juzNumber = button.data("juz");
@@ -56,6 +56,12 @@ $(document).ready(function () {
                         }
                     });
                 });
+
+                // ** Hide Button Click**
+                $("button.hide-juz").click(function() {
+                    var ayatContainer = $(this).siblings('.ayat-container');
+                    ayatContainer.empty().hide();
+                    });
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 console.error("Error fetching Juz information:", textStatus, errorThrown);
