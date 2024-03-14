@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kuis 10 - Restu</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <button>Get Data</button>
+    <script>
+        const settings = {
+	async: true,
+	crossDomain: true,
+	url: 'https://imdb-top-100-movies.p.rapidapi.com/',
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': '3859ad50bcmshda842310b1d3b3fp1eec44jsnd4e5035a61e0',
+		'X-RapidAPI-Host': 'imdb-top-100-movies.p.rapidapi.com'
+	}
+};
+
+$.ajax(settings).done(function (response) {
+    
+	console.log(response);
+});
+    </script>
+  </body>
+</html>

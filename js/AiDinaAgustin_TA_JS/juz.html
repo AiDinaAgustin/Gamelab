@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kuis 10 - Dina</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .juz {
+        width: 70%; /* Adjust width as needed */
+        margin: 50px auto; /* Center the content horizontally */
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+
+    h1 {
+        text-align: center;
+        font-size: 24px;
+        margin: 10px 0;
+    }
+
+    button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        background-color: var(--main-color); /* Blue button color */
+        color: #fff; /* White text color */
+        cursor: pointer;
+    }
+
+    /* List styling */
+    .juz-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .juz-list li {
+        margin: 10px 0;
+        padding: 15px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    /* Information container styling */
+    .info-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .nama-juz,
+    .jumlah-ayat {
+        font-weight: bold;
+    }
+
+    .jumlah-ayat {
+        color: #888; /* Subtle color for number of verses */
+    }
+
+    .translation_id {
+        color: #5e5b5b; 
+    }
+
+    /* Info section styling */
+    .info {
+        margin-top: 10px; /* Additional spacing for clarity */
+    }
+
+    .tafsir {
+        font-style: italic;
+        color: #333; /* Darker color for tafsir */
+    }
+
+    /* Audio link styling */
+    a {
+        color: var(--bg-color); /* Blue text color for audio link */
+        text-decoration: none; /* Remove underline */
+    }
+
+    a:hover {
+        text-decoration: underline; /* Underline on hover for better visual feedback */
+    }
+
+    audio {
+      width: 100%; /* Adjust width as needed */
+      padding: 5px;
+      margin: 10px;
+      border: 1px solid #ddd;
+      border-radius: 3px;
+    }
+
+    audio::-webkit-media-controls-panel {
+      /* Target Chrome, Safari, etc. */
+      background-color: #f5f5f5; /* Light background for controls */
+      border: none;
+    }
+
+    audio::-moz-media-controls-panel {
+      /* Target Firefox */
+      background-color: #f5f5f5; /* Light background for controls */
+      border: none;
+    }
+    .nomor {
+    margin-bottom: 5px; /* Add some space below the Surah number */
+    }
+
+    .nomor-surat {
+    font-weight: bold;
+    font-size: 18px; /* Adjust font size as desired */
+    color: var(--main-color); /* Blue color for Surah number */
+    }
+
+
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <h1>Reading <span>Al-Qur'an</span></h1>
+        </div>
+
+        <nav class="navbar">
+            <a href="#awal">Home</a>
+            <a href="surah.html">Surat</a>
+            <a href="juz.html" class="active">Juz</a>
+        </nav>
+    </header>
+    <section class="awal" id="awal">
+        <div class="juz">
+            <h1>Juz dalam Al-Qur'an</h1>
+            <button class="get">Get Data</button>
+            <ul class="juz-list">
+                
+            </ul>
+            <div class="juz-content">
+
+            </div> 
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; Ai Dina Agustin 2024 - GameLab Indonesia</p>
+    </footer>
+  
+
+  <script src="juz.js">  </script>
+</body>
+</html>
