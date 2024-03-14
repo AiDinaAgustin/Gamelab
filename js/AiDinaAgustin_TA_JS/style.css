@@ -13,7 +13,7 @@
     --bg-color: #111111;
     --second-bg-color: #151515;
     --text-color: #ffffff;
-    --main-color: #04fffb;
+    --main-color: #007F73;
   }
   html {
     font-size: 62.5%;
@@ -32,12 +32,12 @@
   .biografi-img img {
     width: 22vw;
     border-radius: 50%;
-    box-shadow: 0 0 25px var(--main-color);
+    box-shadow: 0 0 60px var(--main-color);
     transition: 0.3s ease-in-out;
   }
 
   .biografi-img img:hover {
-    box-shadow: 0 0 50px var(--main-color), 0 0 25px var(--main-color);
+    box-shadow: 0 0 50px var(--main-color), 0 0 60px var(--main-color);
   }
 
   section {
