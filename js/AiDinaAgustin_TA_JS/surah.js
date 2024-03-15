@@ -63,7 +63,19 @@ $(document).ready(function () {
                 }
             });
           });
+
+          // Button hide
+          $(".hide-surat").click(function() {
+            var button = $(this);
+            var ayatContainer = button.siblings('.ayat-container');
+
+            ayatContainer.empty().hide();
+          });
         },
+
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.error("Error fetching Juz information:", textStatus, errorThrown);
+        }
       });
     });
   });
