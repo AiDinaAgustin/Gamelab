@@ -48,6 +48,9 @@ $(document).ready(function () {
 
     // play button
     $(document).on("click", "button.read-juz", function(){
+        $(".info").html(
+            "<div class='loading'><img src='img/loading.gif' alt='loading' />Please wait...</div>"
+          );
         var button = $(this);
         var juzNumber = button.data("juz");
         var ayatContainer = button.siblings('.ayat-container');
@@ -56,6 +59,7 @@ $(document).ready(function () {
                 url: "https://api.myquran.com/v2/quran/ayat/juz/" + juzNumber,
                 type: "GET",
                 success: function (ayatData) {
+                $(".loading").remove();
                 // Clear previous content and show container
                 ayatContainer.empty().show();
                             
@@ -66,7 +70,8 @@ $(document).ready(function () {
                     });
                 },
             error: function (jqXHR, textStatus, errorThrown) {
-            console.error("Error fetching Ayat information for Juz " + juzNumber + ":", textStatus, errorThrown);
+                $(".loading").remove();
+                console.error("Error fetching Ayat information for Juz " + juzNumber + ":", textStatus, errorThrown);
             }
         });
     });

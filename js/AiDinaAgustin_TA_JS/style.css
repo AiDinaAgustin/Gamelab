@@ -61,6 +61,7 @@
     flex-direction: column;
     text-align: center;
     margin-top: 3rem;
+    margin-bottom: 20px;
   }
 
   .home-content h1 {
@@ -138,16 +139,12 @@
 
   #button:hover{
     transform: scale(1.05);
-    transition: 0.3s ease-in-out;
-    background-color: var(--main-color);
-    color: var(--text-color);
+    transition: 0.4s ease-in-out;
+    box-shadow: 0 0 20px var(--main-color);
+    
   }
 
   #button a{
     color: var(--main-color);
-  }
-
-  #button a:hover {
-    color: var(--text-color);
   }
 
