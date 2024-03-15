@@ -1,13 +1,18 @@
 $(document).ready(function () {
     // Function to load all surah data
     function loadSurahData() {
+        $(".info").html(
+            "<div class='loading'><img src='img/loading.gif' alt='loading' />Please wait...</div>"
+          );
         $.ajax({
             url: "https://api.myquran.com/v2/quran/surat/semua",
             type: "GET",
             success: function (res) {
+                $(".loading").remove();
                 displaySurahList(res.data);
             },
             error: function (jqXHR, textStatus, errorThrown) {
+                $(".loading").remove();
                 console.error("Error fetching Surah information:", textStatus, errorThrown);
             }
         });
@@ -15,6 +20,7 @@ $(document).ready(function () {
 
     // Function to display the list of surahs
     function displaySurahList(surahs) {
+        
         var htmlContent = "";
 
         surahs.forEach(function (surah) {
@@ -59,6 +65,9 @@ $(document).ready(function () {
 
     // Handle Play Button Click
     $(document).on("click", ".read-surat", function () {
+        $(".info").html(
+            "<div class='loading'><img src='img/loading.gif' alt='loading' />Please wait...</div>"
+          );
         var button = $(this);
         var suratNumber = button.data("surat");
         var ayatContainer = button.siblings('.ayat-container');
@@ -67,6 +76,7 @@ $(document).ready(function () {
             url: "https://quran-api.santrikoding.com/api/surah/" + suratNumber,
             type: "GET",
             success: function (suratData) {
+                $(".loading").remove();
                 ayatContainer.empty().show();
 
                 suratData.ayat.forEach(function (ayat) {
@@ -74,7 +84,9 @@ $(document).ready(function () {
                     ayatContainer.append("<span>" + ayat.idn + "</span>");
                 });
             },
+            
             error: function (jqXHR, textStatus, errorThrown) {
+                $(".loading").remove();
                 console.error("Error fetching Ayat information for Surat " + suratNumber + ":", textStatus, errorThrown);
             }
         });
