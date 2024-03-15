@@ -127,6 +127,34 @@
         font-style: italic;
     }
 
+    #search-form {
+    margin-bottom: 20px;
+    text-align: center;
+    }
+
+    input[type="text"] {
+        width: calc(100% - 80px); /* Adjusted width to accommodate the button */
+        padding: 10px;
+        margin-right: 10px; /* Margin between input and button */
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    button[type="submit"] {
+        padding: 10px 20px; /* Adjusted padding for better appearance */
+        background-color: var(--main-color);
+        
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+        background-color: var(--main-color);
+    }
+
+
 
   </style>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -147,7 +175,12 @@
     <section class="awal" id="awal">
         <div class="juz">
             <h1>Juz dalam Al-Qur'an</h1>
+
             <button class="get">Get Data</button>
+            <form id="search-form">
+                <input type="text" id="search-input" placeholder="Cari nama juz...">
+                <button type="submit">Cari</button>
+            </form>
             <ul class="juz-list">
                 
             </ul>

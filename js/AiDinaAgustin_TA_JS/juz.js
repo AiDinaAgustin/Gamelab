@@ -68,4 +68,25 @@ $(document).ready(function () {
             }
         });
     });
+
+    // **Search**
+    $("#search-form").submit(function (event) {
+        event.preventDefault(); // Prevent form submission
+
+        var searchText = $("#search-input").val().toLowerCase();
+        $(".nama-juz").each(function () {
+            var juzName = $(this).text().toLowerCase();
+            var parentLi = $(this).closest("li");
+            if (searchText === "") {
+                parentLi.show(); // Show all juz if search input is empty
+            } else {
+                if (juzName.indexOf(searchText) !== -1) {
+                    parentLi.show();
+                } else {
+                    parentLi.hide();
+                }
+            }
+        });
+    });
+
 });
