@@ -28,6 +28,11 @@ $(document).ready(function () {
             htmlContent += "    <span class='revelation_id'>" + revelation_id + "</span>";
             htmlContent += "    <span class='jumlah-ayat'>| " + ayat + " ayat </span>";
             htmlContent += "  </div>";
+            htmlContent += "  <div class='play'>";
+            htmlContent += "    <button class='read-surat' data-surat='" + nomorSurat + "'>Baca</button>"; // Use "Baca" for Indonesian translation
+            htmlContent += "    <button class='hide-surat' >Hide</button>"; // Use "Baca" for Indonesian translation
+            htmlContent += "    <div class='ayat-container' style='display:none;'></div>"; // Container to display ayat, initially hidden
+            htmlContent += "  </div>";
             htmlContent += "  <audio controls src='" + audioUrl + "'></audio>";
             htmlContent += "  <div class='additional-info'>";  
             htmlContent += "    <span class='tafsir'>" + tafsir + "</span>";
@@ -35,6 +40,29 @@ $(document).ready(function () {
           }
   
           $(".surat-list").html(htmlContent); // Update the content of the list
+
+          // play button
+          $(".read-surat").click(function() {
+            var button = $(this);
+            var suratNumber = button.data("surat");
+            var ayatContainer = button.siblings('.ayat-container');
+
+            $.ajax({
+                url: "https://quran-api.santrikoding.com/api/surah/" + suratNumber,
+                type: "GET",
+                success: function(suratData) {
+                    ayatContainer.empty().show();
+
+                    suratData.ayat.forEach(function(ayat){
+                        ayatContainer.append("<p>"+ ayat.id + ". " + ayat.ar + "</p>");
+                        ayatContainer.append("<span>" + ayat.idn + "</span>");
+                    });
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.error("Error fetching Ayat information for Surat " + suratNumber + ":", textStatus, errorThrown);
+                }
+            });
+          });
         },
       });
     });
